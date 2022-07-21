@@ -1,0 +1,16 @@
+type: code
+files:
+- name: main.js
+  visible: true
+  text: |-
+    function replaceString(data) {
+        let replacedStr = ...
+        ...
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/17757#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Wed, 20 Jul 2022 03:07:47 UTC
+record: -1

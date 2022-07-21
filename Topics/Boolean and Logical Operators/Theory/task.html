@@ -1,0 +1,41 @@
+<h2>Boolean and Logical Operators</h2>
+<html>
+ <head></head>
+ <body>
+  <p style="text-align: justify;"><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">  </span></p>
+  <p>You already know what the variables of numeric and string types are. However, programming requires more than that. In this topic, we will consider another important variable type and operators that work with it.</p> 
+  <h5 id="boolean-type">Boolean type</h5> 
+  <p style="text-align: justify;"><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">There are statements about which we can say whether they are true or not. Imagine that it is raining today, so the statement "it is raining" is true. The statement "5 &lt; 3" is always false, and "the Moon orbits the Earth" is true. These statements have a special type </span>–<span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;"> logical, or </span><strong style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">boolean</strong><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">. </span></p> 
+  <p style="text-align: justify;"><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">There are only two possible values of boolean variables: <code class="language-javascript">true</code> and <code class="language-javascript">false</code>.<strong> </strong></span><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;"> Look at the example of setting a boolean variable and printing it:</span></p> 
+  <pre><code class="language-javascript">let bool = true;
+console.log(bool); // true</code></pre> 
+  <h5 id="logical-operators">Logical operators</h5> 
+  <p style="text-align: justify;"><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">In order to perform operations with the boolean variables, </span><strong style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">logical operators</strong><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;"> are used. There are only three of them </span><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">in JavaScript: logical AND (<code class="language-javascript">&amp;&amp;</code>), logical OR (<code class="language-javascript">||</code>), and NOT (<code class="language-javascript">!</code>). The first two operators are </span><strong style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">binary</strong><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">, which means that they're used with two operands, and the <code class="language-javascript">!</code> operator is </span><strong style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">unary, </strong>so it only takes<span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;"> one operand. <code class="language-javascript">&amp;&amp;</code> returns <em>true</em> if both operands are true and <em>false</em> in all other cases:</span></p> 
+  <pre><code class="language-javascript">console.log(true &amp;&amp; true);   // true
+console.log(true &amp;&amp; false);  // false
+console.log(false &amp;&amp; true);  // false
+console.log(false &amp;&amp; false); // false</code></pre> 
+  <p><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;"><code class="language-javascript">||</code> returns <em>false</em> if both operands are false and<em> true</em> in all other cases:</span></p> 
+  <pre><code class="language-javascript">console.log(true || true);   // true
+console.log(true || false);  // true
+console.log(false || true);  // true
+console.log(false || false); // false</code></pre> 
+  <p><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;"><code class="language-javascript">!</code> returns <em>false</em> to true and <em>true</em> to false:</span></p> 
+  <pre><code class="language-javascript">console.log(!false);  // true
+console.log(!true);   // false
+console.log(!!true);  // true</code></pre> 
+  <h5 id="more-capabilities-of-logical-operators-in-js">More capabilities of logical operators in JS</h5> 
+  <p style="text-align: justify;"><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">Actually, logical operators in JavaScript have much wider capabilities than the traditional usage described above. Their operands can be not only the logical variables </span><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">but also variables of other types. </span></p> 
+  <p style="text-align: justify;"><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">Among the numerical values, <code class="language-javascript">0</code> is considered <code class="language-javascript">false</code>, and all other numbers are <code class="language-javascript">true</code>. All strings except the empty ones are considered <code class="language-javascript">true</code>. </span></p> 
+  <p style="text-align: justify;"><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">Expressions are always calculated from left to right. <code class="language-javascript">&amp;&amp;</code> returns</span><strong style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;"> </strong><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;"><em>false</em> as soon as it finds the first occurring</span><strong style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;"> </strong><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;"><em>false</em>, and the operator <code class="language-javascript">||</code>returns<span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;"><strong> </strong><em>true </em>as soon as it sees the first</span><strong style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;"> </strong><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;"><em>true</em>:</span></span></p> 
+  <pre><code class="language-javascript">console.log(true || 0);      // true
+console.log(false &amp;&amp; "sun"); // false
+console.log(1 || 0);         // 1</code></pre> 
+  <h5 id="priority">Priority</h5> 
+  <p style="text-align: justify;"><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">When working with complex expressions, you should take into account their </span><strong style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">priority</strong><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">. The priority of <code class="language-javascript">!</code> is higher than that of <code class="language-javascript">&amp;&amp;</code>, and the priority of <code class="language-javascript">&amp;&amp;</code> is higher than that of <code class="language-javascript">||</code>. If you need to change the priority, use parentheses:</span></p> 
+  <pre><code class="language-javascript">console.log(!false &amp;&amp; !true);   // false
+console.log(!(false &amp;&amp; !true)); // true</code></pre> 
+  <h5 id="conclusion">Conclusion</h5> 
+  <p style="text-align: justify;"><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">In this topic, we learned what booleans are, reviewed three logical operators in JavaScript, and saw that JS logical operators can be applied not only to logical variables. Now it is time to move on to applying this knowledge in practice.</span></p>
+ </body>
+</html>

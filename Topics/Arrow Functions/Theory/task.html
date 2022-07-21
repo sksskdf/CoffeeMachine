@@ -1,0 +1,47 @@
+<h2>Arrow Functions</h2>
+<html>
+ <head></head>
+ <body>
+  <p></p> 
+  <h5 id="arrow-functions">Arrow functions</h5> 
+  <p style="text-align: justify;"><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">Imagine: you’re writing a calculator program in JavaScript. To develop its functionality, you need to write functions. We can write functions using the syntax we already know. For example, here is a function for adding two numbers:</span></p> 
+  <pre><code class="language-javascript">function append(a, b) {
+  result = a + b;
+  return result;
+}</code></pre> 
+  <p style="text-align: justify;"><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">JavaScript actually has a shorter and more convenient way to write functions, and it's called <strong>Arrow functions</strong>. Here is the same example as above written with the Arrow functions syntax:</span></p> 
+  <pre><code class="language-javascript">let append = (a, b) =&gt; a + b;</code></pre> 
+  <p style="text-align: justify;">Here, we are not just declaring a function, but we are also storing it in a variable. <span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">The Arrow function can be used as an ordinary function:</span></p> 
+  <pre><code class="language-javascript">let result = append(30, 5)
+console.log(result) // 35</code></pre> 
+  <h5 id="setting-arrow-functions">Setting arrow functions</h5> 
+  <p style="text-align: justify;"><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">You can use two methods to assign arrow functions:</span></p> 
+  <pre><code class="language-javascript">let append = (a, b) =&gt; a + b; // short syntax</code></pre> 
+  <p>and</p> 
+  <pre><code class="language-javascript">let append = (a, b) =&gt; { return a + b; }; // block syntax</code></pre> 
+  <p>The main difference is that curly brackets, unlike round ones, allow us to write multiline instructions inside a function. However, remember that when using this method, you must specify a <code class="language-javascript">return</code> directive to return the value. </p> 
+  <p>If there is one parameter in your function, you do not need to frame it with parentheses. For example:</p> 
+  <pre><code class="language-javascript">let sum = a =&gt; a + 2;
+sum(1);  // 3</code></pre> 
+  <p>At the same time, parentheses are needed in functions without parameters.</p> 
+  <h5 id="comparison">Comparison</h5> 
+  <p><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">Let's create some functions using traditional syntax, block arrow function syntax and short arrow function syntax, and compare them:</span></p> 
+  <pre><code class="language-javascript">function mult1(a, b) {
+  return a * b;
+}
+let mult2 = (a, b) =&gt; { return a * b; };
+let mult3 = (a, b) =&gt; a * b;
+
+console.log(mult1(3, 2)) // 6
+console.log(mult2(3, 2)) // 6
+console.log(mult3(3, 2)) // 6</code></pre> 
+  <p style="text-align: justify;"><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">As you can see, the results of all these functions are identical, but the shorter syntax of the arrow function makes it more convenient to write.</span></p> 
+  <p style="text-align: justify;"><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;"></span></p>
+  <div class="alert alert-primary">
+   It's important to use a tool appropriate for the particular problem. If you have code where all functions are written in a traditional way, don’t use Arrow functions. Always think in terms of the existing code structure.
+  </div>
+  <p></p> 
+  <h5 id="conclusion">Conclusion</h5> 
+  <p style="text-align: justify;"><span style="background-color: transparent; color: #000000; font-size: 12pt; font-variant: normal;">In the topic, we considered Arrow functions and two ways of setting them. We checked that different methods yield the same results, but some are more convenient than others. Be smart about this new knowledge, and good luck with the practice tasks!</span></p>
+ </body>
+</html>

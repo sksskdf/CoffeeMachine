@@ -1,0 +1,23 @@
+type: remote_edu
+custom_name: stage1
+files:
+- name: tests.py
+  visible: false
+  learner_created: false
+- name: main.js
+  visible: true
+  text: |
+    // Use "input()" to input a line from the user
+    // Use "input(str)" to print some text before requesting input
+    // You will need this in the following stages
+    const input = require('sync-input')
+
+    console.log("Hello, World!")
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/17036#comment
+check_profile: hyperskill_node_javascript
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Fri, 15 Jul 2022 08:35:00 UTC
+record: 1

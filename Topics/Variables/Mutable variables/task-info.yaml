@@ -1,0 +1,20 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: const a = 4;
+- text: let a = 4;
+- text: const a = '4';
+- text: val a  = 4;
+- text: let a = "4";
+- text: let a = '4';
+- text: const a = "4";
+files:
+- name: main.js
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/8187#comment
+status: Unchecked
+record: -1

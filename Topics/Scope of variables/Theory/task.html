@@ -1,0 +1,105 @@
+<h2>Scope of variables</h2>
+<html>
+ <head></head>
+ <body>
+  <p>We've been declaring all variables with the help of <code class="language-javascript">let</code> and <code class="language-javascript">const</code> without really thinking twice. Now it's time to learn more about <code class="language-javascript">var</code> and get acquainted with the <code class="language-javascript">global</code> and <code class="language-javascript">local</code> scopes of variables.</p> 
+  <h5 id="local-scope" style="text-align: center;">Local scope</h5> 
+  <p>When we create a variable inside a function or block of code, we actually create a <strong>local</strong> variable that is available only within a certain part of code but not in the entire program.</p> 
+  <p>Let's look at the example:</p> 
+  <pre><code class="language-javascript">function someFunc() {
+  let someVar = "local";
+  console.log("Some variable in local scope - " + someVar);
+}
+
+someFunc();
+console.log("Some variable in global scope - " + someVar); // Uncaught ReferenceError: someVar is not defined</code></pre> 
+  <p>When we call a function, we can access the variable and display its value on the screen. However, a variable declared inside the function is not available outside of it. Therefore, the variable <code class="language-javascript">someVar</code> is <code class="language-javascript">local</code>, in other words, it belongs to the <code class="language-javascript">local scope</code>.</p> 
+  <p><code class="language-javascript">Local</code> variables in their turn can have <strong>function</strong> and <strong>block</strong> <strong>scope</strong>. A variable declared with <code class="language-javascript">var</code> is available inside the whole function and has a <code class="language-javascript">function scope</code>. The variable also may be available just in the block of code, between <code class="language-javascript">{</code> and <code class="language-javascript">}</code>; this variable is declared with <code class="language-javascript">let</code> and has a <code class="language-javascript">block</code> scope.</p> 
+  <p>We can have several blocks of code in one function:</p> 
+  <pre><code class="language-javascript">function someFunc2() {
+  let funcVar = "function scope variable";
+  console.log("Some variable in function local scope - " + funcVar);
+  if (funcVar == "function scope variable") {
+    let block1Var = "some variable in block local scope";
+    console.log(funcVar + 'is available in if block as ' + block1Var);
+  } else {
+    let block2Var = "some variable in another block of code";
+    console.log("In else block is available " + block2Var + " and " + funcVar);
+  }
+}
+
+someFunc2();</code></pre> 
+  <p>As you can see, we can access a variable declared in external function from the internal <code class="language-javascript">if</code> and <code class="language-javascript">else</code> blocks of code.</p> 
+  <h5 id="global-scope" style="text-align: center;">Global scope</h5> 
+  <p>A <code class="language-javascript">global</code> variable is accessible from anywhere in the program, not just a particular block of code. Here is an example:</p> 
+  <pre><code class="language-javascript">let someVar = "global";
+
+function someFunc() {
+  console.log("Some variable in local scope - " + someVar);
+}
+
+someFunc();
+console.log("Some variable in global scope - " + someVar);</code></pre> 
+  <p>We will get the following output:</p> 
+  <pre><code class="language-no-highlight">Some variable in local scope - global 
+Some variable in global scope - global</code></pre> 
+  <p>The variable <code class="language-javascript">someVar</code> here is <code class="language-javascript">global</code>, because it can be called from anywhere in the program, not just in the function where it was declared.</p> 
+  <p>If a variable is declared without a special keyword it's considered a <code class="language-javascript">global</code> variable by default, no matter where in the program it was declared. For example, try running this in the console:</p> 
+  <pre><code class="language-javascript">function someFunc() {
+  someVar = "global";
+  console.log("Some variable in local scope - " + someVar);
+}
+
+someFunc();
+console.log("Some variable in global scope - " + someVar);</code></pre> 
+  <p>You'll see that the output will look like this:</p> 
+  <pre><code class="language-no-highlight">Some variable in local scope - global
+Some variable in global scope - global</code></pre> 
+  <h5 id="priority-of-variables" style="text-align: center;">Priority of variables</h5> 
+  <p><code class="language-javascript">local</code> and <code class="language-javascript">global</code> variables differ in their <strong>priority</strong>: it is higher for <code class="language-javascript">local</code> variables. Let's consider the following example:</p> 
+  <pre><code class="language-javascript">someVar = "global";
+
+function someFunc() {
+  let someVar = "local";
+  console.log("Some variable in local scope - " + someVar);
+}
+
+someFunc();
+console.log("Some variable in global scope - " + someVar);</code></pre> 
+  <p>As a result, we'll get the following:</p> 
+  <pre><code class="language-no-highlight">Some variable in local scope - local
+Some variable in global scope - global</code></pre> 
+  <p>Even though the variable <code class="language-javascript">someVar</code> in a <code class="language-javascript">global scope</code> was declared earlier, when we access the variable <code class="language-javascript">someVar</code> inside the function, the <code class="language-javascript">local</code> variable is received because of the priority of <code class="language-javascript">local</code> variables.</p> 
+  <h5 id="let-vs-const-vs-var" style="text-align: center;">let <em>Vs</em> const <em>Vs</em> var</h5> 
+  <p>As you know, besides <code class="language-javascript">let</code>, there are two more identifiers for declaring variables: <code class="language-javascript">const</code> and <code class="language-javascript">var</code>.</p> 
+  <p>Unlike with the <code class="language-javascript">let</code> identifier, variables declared with <code class="language-javascript">const</code> cannot be overridden. See the example below:</p> 
+  <pre><code class="language-javascript">const someVar = "constant variable";
+someVar = "mutable variable";</code></pre> 
+  <p>We will get <code class="language-javascript">TypeError</code>.</p> 
+  <p>In earlier versions of JavaScript, it was customary to use <code class="language-javascript">var</code> to declare a variable. However, today this method is considered obsolete. As we said above, the variable declared with <code class="language-javascript">var</code> is available inside the whole function and has a so-called <code class="language-javascript">function scope</code>. For example:</p> 
+  <pre><code class="language-javascript">function someFunc() {
+  var i;
+  for (i = 0; i &lt;= 5; i++) {
+    var someVar = i * i;
+  }
+  console.log(i);
+  console.log(someVar);
+}
+
+someFunc();</code></pre> 
+  <p>Here we will get the last values of <code class="language-javascript">i</code> and <code class="language-javascript">someVar</code>:</p> 
+  <pre><code class="language-javascript">function someFunc() {
+  let i;
+  for (i = 0; i &lt;= 5; i++) {
+    let someVar = i * i;
+  }
+  console.log(i);
+  console.log(someVar);
+}
+
+someFunc();</code></pre> 
+  <p>However, here we will get <code class="language-javascript">ReferenceError</code> as a result, if we try to access <code class="language-javascript">someVar</code>, because the <code class="language-javascript">let</code> identifier has a <code class="language-javascript">block scope</code>, so the variables declared with it are accessible inside the block of code between the <code class="language-javascript">{}</code> brackets.</p> 
+  <h5 id="conclusion" style="text-align: center;">Conclusion</h5> 
+  <p>In this topic, we've examined what the <code class="language-javascript">local</code> and <code class="language-javascript">global</code> scopes are, found out that the <code class="language-javascript">local</code> variables can have <code class="language-javascript">function</code> or <code class="language-javascript">block scope</code>, looked at different ways of declaring variables and at how variables may differ in their scopes.</p>
+ </body>
+</html>
